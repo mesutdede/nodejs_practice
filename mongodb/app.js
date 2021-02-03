@@ -15,20 +15,32 @@ MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, fu
     }
 
     var dbo = db.db("nodemongodb");
+
+    // CREATE COLLECTION
     /*dbo.createCollection("mongocollection", function(err){
         if(err) throw err;
         console.log("collection created.");
         db.close();
     });*/
+
+    // INSERT RECORD TO COLLECTION
+    /*
     var obj = [
-        {name:"Hasan", city: "Ankara"},
-        {name:"Hüseyin", city: "Giresun"},
-        {name:"Murat", city: "Denizli"}
+        {_id: 100, name:"Ali", city: "Trabzon"},
+        {_id: 101, name:"Orhan", city: "Rize"},
+        {_id: 102, name:"Hakan", city: "Elazığ"}
     ];
-    dbo.collection("mongocollection").insertMany(obj, function(err){
+    dbo.collection("mongocollection").insertMany(obj, function(err, res){
         if(err) throw err;
-        console.log("new document created.");
+        //console.log("new document created.");
+        console.log(res.insertedCount + " adet veri eklendi.");
         db.close();
+    }); */
+
+
+    // FIND
+    dbo.collection("mongocollection").findOne({}, function(err, result){
+        
     });
 
     //console.log("database created.");
